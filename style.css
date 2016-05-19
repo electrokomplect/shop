@@ -1,0 +1,232 @@
+.Korzina {
+	font-family:Arial;
+  position:relative;
+  background-color:#ffc0cb;
+  right:0px;
+  border:1px solid green;
+  width:250px;
+  height:auto;
+  float:auto;
+  margin-left: auto;
+  margin-right:auto;
+  z-index:5;
+}
+.korzina-name {
+  margin:0px;
+  margin-bottom:10px;
+}
+.Korz-stroka-element {
+  border:1px solid blue;
+  position:relative;
+  top:0px;
+  overflow-x:hidden;
+  width:120px;
+  height:23px;
+  float:left;
+  margin:0;
+  padding:0px;
+}
+.Korzina-stroka {
+  border-bottom:1px solid #d5d7b5;
+  position:relative;
+  top:0px;
+  width:auto;
+  height:25px;
+  float:left;
+  margin:0;
+  padding:0px;
+}
+.korz-qty {
+  display:block;
+  float:right;
+  margin:0;
+  margin-right:0px;
+}
+.korz-qty2 {
+  display:block;
+  float:right;
+  margin:0;
+  margin-right:4px;
+}
+.qty3 {
+display:block;
+  float:right;
+  margin:0;
+  margin-right:4px;
+}
+.znak-plus {
+  display:none;
+  float:right;
+  margin:0;
+  margin-right:25px;
+  border:1px solid green;
+}
+.znak-minus {
+  display:none;
+  float:right;
+  margin:0;
+  margin-right:0px;
+  border:1px solid green;
+}
+.umnojit {
+  display:block;
+  float:right;
+  margin:0;
+  margin-right:0px;
+}
+.Korz-stroka-cena {
+  border:1px solid red;
+  position:relative;
+  top:auto;
+  width:70px;
+  height:auto;
+  float:right;
+  margin:0;
+  padding:0px;
+}
+.remove {
+  border:1px solid red;
+  position:relative;
+  width:auto;
+  height:auto;
+  float:right;
+  margin: 0;
+  padding: 0px;
+  margin-right:5px;
+  marging-left:3px;
+  
+}
+.itogo {
+margin-right:15px;
+float:right;
+clear:both;
+ }
+.kontakty_dostavki {
+	display:none;
+	height:auto;
+	width:450px;
+	border:1px solid green;
+	margin:30px auto;
+	font-family:Arial;
+}
+.oformlenie-dostavki {
+	margin: 0 0 10px 0;
+	font-size:18px;
+}
+.user_name {
+	border:1px solid green;
+	height:25px;
+	width:175px;
+	border-radius: 2px;
+	padding-top:5px;
+	margin-bottom: 20px;
+	font-family:Arial;
+	font-size: 18px;
+}
+.user_telephone {
+	border:1px solid green;
+	height:25px;
+	width:175px;
+	border-radius:2px;
+	margin-left:0px;
+	padding-top:5px;
+	font-family:Arial;
+	font-size: 18px;
+	
+}
+.your-message {
+	border:1px solid green;
+	height:80px;
+	width:450px;
+	margin-top:0px;
+	border-radius:2px;
+	padding-top:5px;
+	font-family:Arial;
+	font-size: 16px;
+
+}
+.send-message {
+	border:1px solid green;
+	margin: 20px 0px 0px 0px;
+	height:35px;
+	width: 150px;
+	border-radius:2px;
+	float:right;
+	font-family:Arial;
+}
+.text-forma {
+	size:9px;
+	color:grey;
+	margin-top:0px;
+	font-family:Arial;
+}
+.Name-tel1 {
+	float:left;
+	margin-right:80px;
+	
+}
+.Name-tel2 {
+	float:right;
+	margin-right:0px;
+}
+.tovar {
+  position:auto;
+  border:1px solid red;
+  width:250px;
+  height:100px;
+  float:left;
+  margin:0;
+  z-index:4;
+}
+
+.vse-tovar {
+  position:auto;
+  border:0px solid red;
+  width:auto;
+  height:0px;
+  float:auto;
+  margin:0 ;
+  z-index:4;
+  
+}
+
+.korzina-big {
+  background-color:#c0c0c0;
+  position: absolute;
+  border:1px solid green;
+  width:600px;
+  height:auto;
+  min-height:300px;
+  font-size: 20px;
+  margin:0 auto;
+  padding:30px;
+  left:-650px;
+  z-index:5;
+  float:left;
+}
+
+.Korzina-big-stroka {
+	color:auto;
+	margin:0px;
+	margin-bottom:20px;
+	padding-bottom:20px;
+	border-bottom: 2px solid #d5d7b5;
+}
+.Korzina-big-close {
+	display:none;
+	position: absolute;
+	float:right;
+	margin:0;
+	right:-8px;
+	top:-12px;
+	border:none;
+}
+
+.Korzbig-stroka-cena {
+  margin-right:30px;
+}
+.toster {
+		
+	width:auto;
+	height:auto;
+}

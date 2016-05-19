@@ -1,0 +1,254 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<title>Блочная верстка</title>
+<link rel="stylesheet" type="text/css" href="style/style.css">
+<link rel="stylesheet" type="text/css" href="style/style_html.css">
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script type="text/javascript" src="cookie/jquery.cookie.js"></script>
+</head>
+
+
+
+<script type='text/javascript'>
+
+var start=201;
+var finish=207;  
+
+//Проверка наличия Cookie и вырисовка корзины при перезагрузке страницы
+$(document).ready(function getCardLoad(){
+	var i;
+	for(i=start; i<finish; i++) {
+	var x=document.getElementById(i).name;
+	if ($.cookie(x)) { 
+	func15(i);
+		};
+		};
+});
+
+//Проверка наличия Товара в корзине через Cookie чтобы при повторном нажатии кноки "Вкорзину"
+function func15(u){
+//	var x=document.getElementById(u).name;
+//	if ($.cookie(x)) {
+//	alert('Я уже есть!');
+//		};
+//	else {
+	func10(u);
+	$('#'+u).parent().append("<img width=30 height=30 src=style/Galochka.png alt=Добавлен>");
+	$('#'+u).css("display","none");
+//	};			
+};         
+
+// Создание cookie 
+   	function func10(id) {
+	dd=parseFloat(id);	var id200=dd-100;
+	var COOKIE_NAME = document.getElementById(id).name;
+        var options = { path: '/', expires: 1 };
+	var znachenie=document.getElementById(id200).name;
+	$.cookie(COOKIE_NAME, znachenie, options);
+//Добавление строки с товаром и кнопки удалить
+	var dyn = document.createElement("div");
+	var t=COOKIE_NAME;
+	dyn.innerHTML='<span class="Korzina-stroka">\
+				<span class="Korz-stroka-element">'+t+'</span>\
+				<span id='+t+' class="remove" onclick="func11(id);"><img width="20" height="20"  src="style/close.png" alt="Удалить это"></span>\
+				<span class="Korz-stroka-cena">'+znachenie+'&nbsppуб&nbsp</span>\
+				<div class="korz-qty2" >\
+					<span class="umnojit">&#215</span> <span class="znak-plus" onclick="func189(this)">+</span> <span class="qty3">1</span> <span class="znak-minus" onclick="func289(this)">-</span>\
+				</div>\
+			</span>';
+	document.getElementById('1001').appendChild(dyn);
+	func89();
+	};
+
+//Удаляем Cookie и стоки с товаром Вкорзине
+		function func11 (id) {
+		$.removeCookie(id, { path: '/' });
+		$('#Korzina').on('click','.remove', function () {
+        	$(this).parent().remove(); 
+		});
+		func89();
+		};
+
+function func189(obj) {
+var a=$(obj).siblings().eq(1).text();
+var b=parseFloat(a)+1;
+$(obj).siblings().eq(1).text(b);
+func89();
+}
+
+function func289(obj) {
+var a=$(obj).siblings().eq(2).text();
+ if (parseFloat(a)>1) {
+var b=parseFloat(a)-1;
+$(obj).siblings().eq(2).text(b);
+func89();
+}
+}
+
+//Добавление и Удаление Куки "Itogo" (Идет простой пересчет существующих куки)
+function func89(){
+	var i;
+	var y=0;
+	for(i=start; i<finish; i++) {
+		if (document.getElementById(i).name) {
+			var x=document.getElementById(i).name;
+			if ($.cookie(x)) {
+ 			var b=$('#'+x).next().next().children().eq(2).text();		
+			var x=parseFloat($.cookie(x)*parseFloat(b));
+			y=y+x;
+					};
+			// С помощью ELSE возращаем отоброжение кнопки "Вкорзину"	
+		else { 
+		$('#'+i).css("display","block"); $('#'+i).nextAll().remove();
+		};
+				};
+			//Создаем куки Itogo  с суммой товаров "y" и выводим в конце корзины
+	var options = { path: '/', expires: 1 };
+	$.cookie('Itogo', y, options);
+	$("#itog").html(y);
+};	
+};
+
+//Открываем и скрыаем большую корзину
+function func95(){
+$(".korz-qty2").css("margin-right","20px");
+$(".Korz-stroka-cena").addClass('Korzbig-stroka-cena');
+document.getElementById('Korzina').className='korzina-big';
+$(".Korzina-big-close").show()
+$(".Korzina-stroka").css('','').addClass('Korzina-big-stroka');
+$(".kontakty_dostavki").css("display","block");
+$(".znak-plus").css("display","block");
+$(".znak-minus").css("display","block");
+$(".Korz-stroka-element").css("width","350px");
+}
+
+function func96(){
+$(".korz-qty2").css("margin-right","10px");
+$(".Korz-stroka-cena").removeClass('Korzbig-stroka-cena');
+document.getElementById('Korzina').className='Korzina';
+$(".Korzina-big-close").hide()
+$(".Korzina-stroka").css('','').removeClass('Korzina-big-stroka');
+$(".kontakty_dostavki").css("display","none");
+$(".znak-plus").css("display","none");
+$(".znak-minus").css("display","none");
+$(".Korz-stroka-element").css("width","110px");
+}
+
+</script>
+
+
+
+<body>
+
+<div id="container">
+
+	<div id="header">
+  	  <h1>Header</h1>
+	</div>
+
+	<div id="left">
+  	  <h3>left Content</h3>
+	</div>
+
+<div id="right">
+    <div class="Korzina" id="Korzina">
+    <img onclick="func96();" width="30" height="30" class="Korzina-big-close"  src="style/close-hover.png" alt="Скрыть"> 
+    <div class="korzina-name" onclick="func95();" >Корзина</div>
+    <div id="1001" class="toster"> </div>
+    <div class="itogo" id="itogo">Итого&nbsp<span id="itog">0</span>&nbspруб</div>
+		<div id="kontakty_dostavki"" name="kontakty_dostavki" class="kontakty_dostavki">
+			<div class="oformlenie-dostavki">Оформление доставки </div>
+			<span class="Name-tel1">
+			<div class="">Имя:</div>
+			<input valign: "center" id="user_name" type="text" name="user_name" class="user_name" placeholder="Введите ваше имя" maxlength="30" autocomplete="off" required/>
+
+        		</span>
+			<span class="">
+			<div class="">Телефон:*</div>
+			<input id="user_telephone" type="text" name="telephone" class="user_name" placeholder="*Введите Ваш телефон" maxlength="30" autocomplete="off" required/><br>
+			</span>
+			<div>
+			<span class="text-forma">Адресс доставки:</span>
+			<textarea type="text" name="user_adress" class="your-message" placeholder="Адресс доставки"></textarea>
+
+			<input name="color" id="color" type="hidden" value=""/><br>
+
+        		<input id="button" type="button" class="send-message" value="Отправить" onclick="return validate_form();"/>
+			</div>
+		</div>
+    </div>
+
+
+   <h3>right Content</h3>
+   <p>The background color on this div will only show for the length of the content. If you'd like a dividing line instead, place a border on the left side of the </p>
+   <p>#mainContent div if it will always contain more content.</p>
+   <p>&nbsp;</p>
+</div>
+
+
+<div id="content">
+  <h1>Items</h1>
+  <div class="vse-tovar">
+ 	<div class="tovar">
+	<div id="101" name="300"> Yoobao1</div>
+	<form>
+	<input id="201" type="button" name="Yoobao1"  value="Хочу это" onclick="func15(id);"/>
+	</form>
+	</div>
+
+	<div class="tovar">
+	<div id="102" name="200"> Yoobao2</div>
+	<form>
+	<input id="202" type="button" name="yoobao2" class="" value="В корзину" onclick="func15(id);"/>
+	</form>
+	</div>
+
+	<div class="tovar">
+	<div id="103" name="500"> Yoobao3</div>
+	<form>
+	<input id="203" type="button" name="yoobao3gdshg sdghchds sdhjgchjvdshj jdhschjdvshgf dgdfg" class="" value="Это то" onclick="func15(id);"/>
+	</form>
+	</div>
+
+		
+	<div class="tovar">
+	<div id="104" name="3000"> Yoobao4</div>
+	<form>
+	<input id="204" type="button" name="yoobao4" class="" value="Всегда хотел" onclick="func15(id);"/>
+	</form>
+	</div>
+	
+	<div class="tovar">
+	<div id="105" name="100"> Yoobao5</div>
+	<form>
+	<input id="205" type="button" name="yoobao5" class="" value="Добавить" onclick="func15(id);"/>
+	</form>
+	</div>
+	
+	<div class="tovar">
+	<div id="106" name="800"> Yoobao6</div>
+	<form>
+	<input id="206" type="button" name="yoobao6" class="" value="Хочу такой" onclick="func15(id);"/>
+	</form>
+
+	</div> 
+
+  </div>
+
+</div>
+
+
+<div id="clear"></div>
+
+
+<div id="footer"> 
+  <p><strong>Footer</strong></p>
+</div>
+
+</div>
+
+</body>
+</html>
